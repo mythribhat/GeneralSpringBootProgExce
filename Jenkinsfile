@@ -68,23 +68,11 @@ node('master')
              sh '/opt/maven/bin/mvn clean deploy -DaltDeploymentRepository=internal.repo::default::http://admin:admin123@13.58.190.66:8081/nexus/content/repositories/snapshots/' 
 
          } 
-    
- stage('Send email') 
-    
-   {
-    def mailRecipients = "mythritest@yahoo.com"
-    def jobName = currentBuild.fullDisplayName
-
-    emailext body: '''${SCRIPT, template="groovy-html.template"}''',
-        mimeType: 'text/html',
-        subject: "[Jenkins] ${jobName}",
-        to: "${mailRecipients}",
-        replyTo: "${mailRecipients}",
-        recipientProviders: [[$class: 'CulpritsRecipientProvider']]
-    }
 }
 
-stage("speak") {
-        slackSend color: '#BADA55', message: 'Hello, World!'
+
+stage("speak") 
+{
+    slackSend color: '#BADA55', message: 'job name :' ${currentBuild.fullDisplayName}"
     }
 
