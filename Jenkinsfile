@@ -71,9 +71,9 @@ node('master')
 }
 
 
-stage("speak") 
+stage("Sending the notification to slack") 
 {
-    slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+    slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER}"
     
     }
 
