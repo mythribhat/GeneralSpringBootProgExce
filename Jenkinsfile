@@ -73,6 +73,7 @@ node('master')
 
 stage("speak") 
 {
-    slackSend color: '#BADA55', message: 'job name :' ${currentBuild.fullDisplayName}
+    slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+    
     }
 
