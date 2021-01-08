@@ -73,7 +73,7 @@ node('master')
 
 stage("Sending the notification to slack") 
 {
-    slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+    slackSend message: "Job Name:- ${env.JOB_NAME} Job Number:- ${env.BUILD_NUMBER} Build status :- ${currentBuild.currentResult}"
     
     }
 
