@@ -73,6 +73,6 @@ node('master')
 
 stage("speak") 
 {
-    slackSend color: '#BADA55', message: 'job name :' ${currentBuild.fullDisplayName}"
+    slackSend color: '#BADA55', message: 'job name :' ${currentBuild.fullDisplayName}
     }
 
